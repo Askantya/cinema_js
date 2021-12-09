@@ -1,9 +1,9 @@
 import { getTriends } from './services.js';
-
-const filmWeek = document.querySelector('.film-week')
+import renderCards from './renderCards.js'
+import elements from './elements.js'
 
 const firstRender = data => {
-    filmWeek.innerHTML = `
+    elements.filmWeek.innerHTML = `
     <div class="container film-week__container" data-rating="${data.vote_average}">
         <div class="film-week__poster-wrapper">
             <img class="film-week__poster" src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${data.backdrop_path}" alt="постер${data.name}">
@@ -14,9 +14,10 @@ const firstRender = data => {
     </div>`;
 };
 
-const renderVideo = async () => {
+(async () => {
     const data =  await getTriends();
-    firstRender(data.results[0]);
-};
-
-export default renderVideo;
+    const [ firstCard, ...otherCard ] = data.results;
+    otherCard.length = 16;
+    firstRender(firstCard);
+    renderCards(otherCard);
+})();
