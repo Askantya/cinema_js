@@ -31,7 +31,7 @@ const triggerNav = event => {
         }
 
         if (target.classList.contains('get-nav__link_triends')) {
-            getTrends('movie', 'tv')
+            getTrends('all')
             .then(data => renderCards(data.results));
         }
     }; 
