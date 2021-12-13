@@ -1,6 +1,7 @@
 import slideMenu from './main.js';
-import './renderVideo.js'
-import './menuLink.js'
+import menuLink from './menuLink.js'
+import renderVideo from './renderVideo.js';
+import search from './search.js';
 
 slideMenu({
     openBtn: '.header__burger-btn',
@@ -9,3 +10,6 @@ slideMenu({
     closeTrigger: '.navigation__link, .navigation__close',
 });
 
+renderVideo();
+menuLink();
+search();

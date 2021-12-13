@@ -26,3 +26,13 @@ export const getPopular = async (type, page = 1) => {
     const url = `${baseUrl}${type}/popular?api_key=${apiKey}${language}&page=${page}`;
     return await getData(url);
 };
+
+export const getVideo = async (id, type) => {
+    const url = `${baseUrl}${type}/${id}/videos?api_key=${apiKey}${language}`;
+    return await getData(url);
+};
+
+export const search = async (query, page) => {
+    const url = `${baseUrl}search/multi?api_key=${apiKey}${language}&page=${page}&include_adult=false&query=${query}`;
+    return await getData(url);
+};
